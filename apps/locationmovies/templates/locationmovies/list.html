@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Account 1</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="static/locationmovies/scripts/jquery.min.js"></script>
+    <script src="static/locationmovies/scripts/bootstrap-dropdown.js"></script>
+
+    <script type='text/javascript'>
+    $(document).ready(function(){
+      $('#topbar').dropdown();
+    });
+    </script>
+
+    <!-- Le styles -->
+    <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+      .sidebar.well.span4{
+        width: 180px;
+      }
+      .ads tbody tr td{
+        cursor:pointer !important;
+      }
+      .highlight td{
+        font-weight:bold;
+      }
+      td.mini-thumbnail img{
+        max-height:50px;
+        max-width:100px;
+      }
+      td.mini-thumbnail{
+        text-align:center;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="static/locationmovies/images/favicon.ico">
+    <link rel="apple-touch-icon" href="static/locationmovies/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/locationmovies/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/locationmovies/images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container span18">
+          <a class="brand" href="/">SF FilmSpot</a>
+          <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/">Movie</a></li>
+            <li class="active"><a href="/">Place</a></li>
+            <li class="active"><a href="/contact">Contact us</a></li>
+          </ul>
+
+          <form class="pull-left" action="">
+            <input type="text" placeholder="Search">
+              <button class="btn" type="submit">Go</button>
+          </form>
+
+          <p class="pull-right">Logged in as <a href="#">Guest</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container span18">
+      <div class='cleaner_h40'></div>
+
+      <div class='row'>
+        <div class="well span4 sidebar">
+            <h4>Guest</h4>
+            <div class='cleaner_h10'></div>
+
+            <div class='btn primary large'>See my wishlist</div>
+            <div class='cleaner_h20'></div>
+
+            <p><a href='templates/locationmovies/account1.html'>Movie</a></p>
+            <p><a href='#'>Place</a></p>
+        </div><!-- end of sidebar -->
+
+        <div class='span14'>
+          <h2>Add to list</h2>
+          <table class='zebra-striped ads'>
+              <thead>
+                  <tr>
+                      <th class='span2'></th>
+                      <th class='span4'>Title</th>
+                      <th class='span2'>Year</th>
+                      <th class='span2'>Location</th>
+                      <th class='span4'>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
+                      <td>Milk</td>
+                      <td>2013</td>
+                      <td>Castro Street</td>
+                      <td>
+                        <div class='btn small success disabled'>Add to wishlist</div>
+                        <div class='btn small danger'>Remove</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/dirty_harry copy.png'/></td>
+                      <td>Dirty Harry</td>
+                      <td>1971</td>
+                      <td>Portsmouth Square</td>
+                      <td>
+                        <div class='btn small success'>Add to Wish-List</div>
+                        <div class='btn small danger'>Remove</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/48hours.png'/></td>
+                      <td>48 Hours</td>
+                      <td>1982</td>
+                      <td>MUNI Church Street Station</td>
+                      <td>
+                        <div class='btn small success'>Add to Wish-List</div>
+                        <div class='btn small danger'>Remove</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/vertigo copy.png'/></td>
+                      <td>Vertigo</td>
+                      <td>1958</td>
+                      <td>Golden Gate Bridge</td>
+                      <td>
+                        <div class='btn small success'>Add to Wish-List</div>
+                        <div class='btn small danger'>Remove</div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <!-- <h2>Favorites</h2>
+          <table class='zebra-striped ads'>
+              <thead>
+                  <tr>
+                      <th class='span2'></th>
+                      <th class='span4'>Title</th>
+                      <th class='span2'>Price</th>
+                      <th class='span2'>Location</th>
+                      <th class='span4'>Action</th>
+                  </tr>
+              </thead> -->
+              <!-- <tbody>
+                  <tr>
+                    <td class='mini-thumbnail'><img src='images/sample/car3.jpg'/></td>
+                    <td>BMW... yes M5</td>
+                    <td>$25,000</td>
+                    <td>Seattle, WA</td>
+                    <td>
+                      <div class='btn small info'>Contact Seller</div>
+                      <div class='btn small danger'>Remove</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='mini-thumbnail'><img src='images/sample/car4.jpg'/></td>
+                    <td>BMW M5</td>
+                    <td>$20,000</td>
+                    <td>Seattle, WA</td>
+                    <td>
+                      <div class='btn small info'>Contact Seller</div>
+                      <div class='btn small danger'>Remove</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='mini-thumbnail'><img src='images/sample/car5.jpg'/></td>
+                    <td>BMW M5</td>
+                    <td>N/A</td>
+                    <td>Seattle, WA</td>
+                    <td>
+                      <div class='btn small info'>Contact Seller</div>
+                      <div class='btn small danger'>Remove</div>
+                    </td> -->
+                <!-- </tr>
+              </tbody>
+          </table> -->
+        </div><!-- end of center content -->
+      </div>
+
+      <footer>
+        <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

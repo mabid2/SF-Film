@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Content_1</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="static/locationmovies/scripts/jquery.min.js"></script>
+    <script src="static/locationmovies/scripts/bootstrap-dropdown.js"></script>
+
+    <script type='text/javascript'>
+    $(document).ready(function(){
+      $('#topbar').dropdown();
+    });
+    </script>
+
+    <!-- Le styles -->
+    <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+
+      #main-thumbnail{
+        text-align:center;
+        width:330px;
+        height:245px;
+        border: 1px solid #DFE2E1;
+        position:relative;
+      }
+      #main-thumbnail img{
+        max-width:330px;
+        max-height:230px;
+      }
+      #main-thumbnail p{
+        width:100%;
+        height:20px;
+        position:absolute;
+        bottom:-10px;
+        text-align:center;
+        font-weight:bold;
+        background-color:#999;
+        color:#ECECEC;
+      }
+      #main-thumbnail p:hover{
+        cursor:pointer;
+        background-color:#666;
+      }
+
+
+      .time-left{
+        font-family: arial;
+        font-size: 12pt;
+        font-weight: bold;
+        color: #F60;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container span18">
+          <a class="brand" href="/">SF FilmSpot</a>
+          <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/">Movie</a></li>
+            <li class="active"><a href="/">Place</a></li>
+            <li class="active"><a href="/contact">Contact us</a></li>
+          </ul>
+
+          <form class="pull-left" action="">
+            <input type="text" placeholder="Search">
+              <button class="btn" type="submit">Go</button>
+          </form>
+
+          <ul class="nav secondary-nav">
+            <li><a href="#">My Account</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container span18">
+
+      <ul class="breadcrumb">
+        <li><a href="#">Home</a> <span class="divider">/</span></li>
+        <li><a href="#">list</a> <span class="divider">/</span></li>
+        <li class="active">1</li>
+      </ul>
+
+      <div class="row">
+        <div class='span14'>
+          <!-- Title & Description -->
+          <h1>Vertigo</h1>
+          <p style='margin-top:-20px'>
+            Vertigo is a 1958 American psychological thriller film directed and produced by Alfred Hitchcock. The story was based on the 1954 novel D'entre les morts (From Among the Dead) by Boileau-Narcejac.
+          </p>
+
+          <div class='cleaner_h20'></div>
+
+          <!-- inside content -->
+          <div class='span14'>
+            <div class='row'>
+              <div class='span6'>
+                <div id='main-thumbnail'>
+                  <img src='static/locationmovies/images/sample/vertigo copy 2.png'/>
+                  <p>Expand</p>
+                </div>
+              </div>
+
+              <!-- right side content - price and basic information -->
+              <div class='span8'>
+
+                <div class='row'>
+                  <div class='span2'>
+                    Film Location:
+                  </div>
+                  <div class='span6'>
+                    Golden Gate Bridge, San Francisco, United States
+                  </div>
+                </div>
+
+                <div class='cleaner_h10'></div>
+
+                <div class='row'>
+                  <div class='span2'>
+                    Year:
+                  </div>
+                  <div class='span6'>
+                    <span class='time-left'>1958</span>
+                  </div>
+                </div>
+                <div class='cleaner_h10'></div>
+                <div class='row'>
+                  <div class='span2'>
+                    Director:
+                  </div>
+                  <div class='span6'>
+                    Alfred Hitchcock
+                  </div>
+                </div>
+                <div class='cleaner_h10'></div>
+
+                <div class='row'>
+                  <div class='span2'>
+                    Actor:
+                  </div>
+                  <div class='span6'>
+                    James Stewart, Kim Novak
+                  </div>
+                </div>
+                <div class='cleaner_h10'></div>
+
+                <div class='row'>
+                  <div class='span2'>
+                    Description:
+                  </div>
+                  <div class='span6'>
+                    The film was shot on location in San Francisco, California, and at Paramount Studios in Hollywood. It is the first film to utilize the dolly zoom, an in-camera effect that distorts perspective to create disorientation, to convey Scottie's acrophobia. As a result of its use in this film, the effect is often referred to as "the Vertigo effect".
+                  </div>
+                </div>
+                <div class='btn small success'>Add to Wish-List</div>
+              </div><!-- end of right side content - price and basic description -->
+            </div>
+          </div>
+
+        </div>
+
+        <div class='span4'>
+          <h4 style='display:inline;'>Ratings</h4> ( 4 <span style='font-size:12pt;'>&#10031;</span> )
+          <div class='cleaner'></div>
+          &#10030;&#10030;&#10030;&#10030;&#10025; 82% Positive feedback
+          <div class='cleaner_h10'></div>
+
+        <div class='span4'>
+          <iframe width="220" height="280" frameborder="1" scrolling="yes" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=golden+gate+bridge&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=near&amp;output=embed"></iframe><br />
+          <small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=seattle+downtown&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+        </div>
+      </div><!-- end of row -->
+
+      <div class='separator cleaner_h20'></div>
+      <div class='cleaner_h20'></div>
+
+      <!-- main description -->
+      <div class='row'>
+        <div class='span14'>
+          <h4>Comments from <a href="#">Amy</a></h4>
+          <p>
+            The film stars James Stewart as former police detective John "Scottie" Ferguson. Scottie is forced into early retirement because an incident in the line of duty has caused him to develop acrophobia (an extreme fear of heights) and vertigo (a false sense of rotational movement). Scottie is hired by an acquaintance, Gavin Elster, as a private investigator to follow Gavin's wife Madeleine (Kim Novak), who is behaving strangely.
+          </p>
+          <div class='separator cleaner_h5'></div>
+          <h4>Comments from <a href="#">Anna</a></h4>
+          <p>
+            Vertigo received mixed reviews upon initial release, but is now often cited as a classic Hitchcock film and one of the defining works of his career. Attracting significant scholarly criticism, it replaced Citizen Kane (1941) as the best film ever made in the 2012 British Film Institute's Sight & Sound critics' poll.[2] In 1996, the film underwent a major restoration to create a new 70mm print and DTS soundtrack. It has appeared repeatedly in polls of the best films by the American Film Institute,[3] including a 2007 ranking as the ninth-greatest American movie of all time.
+          </p>
+        </div>
+      </div>
+      <!-- <div class='well span6'> -->
+      <div class='row'>
+        <form class='form-stacked'>
+        <div class="clearfix">
+            <label for="message">Add comments</label>
+            <textarea class="xlarge" id="message" name="message" rows='1' style='resize:none;'></textarea>
+            <input type='submit' value='submit&raquo;' id='submit' name='submit' class="btn primary"/>
+        </div>
+        </form>
+      </div>
+
+      <!-- end of main description -->
+
+      <footer>
+        <p>&copy; Coding Dojo 2016 By <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
+      </footer>
+
+    </div> <!-- /container -->
+    </div>
+  </body>
+</html>

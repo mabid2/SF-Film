@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>index.html</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="static/locationmovies/scripts/jquery.min.js"></script>
+    <script src="static/locationmovies/scripts/bootstrap-dropdown.js"></script>
+
+    <script type='text/javascript'>
+    $(document).ready(function(){
+      $('#topbar').dropdown();
+    });
+    </script>
+
+    <!-- Le styles -->
+    <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+      .content-row div{
+        display:inline-block;
+        width:192px;
+      }
+      .content-row input.btn{
+        margin:auto;
+        font-weight:bold;
+        width:100%;
+      }
+      img.content-thumbnail{
+        width:100%;
+      }
+      .title{
+        font-weight:bold;
+        font-size:18pt;
+        text-align:center;
+      }
+      .current-price{
+        color:#b94a48;
+        font-weight:bold;
+        font-size:22pt;
+        text-align:center;
+      }
+      .time-left{
+        color:#468847;
+        font-weight:bold;
+        font-size:18pt;
+        text-align:center;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="static/locationmovies/images/favicon.ico">
+    <link rel="apple-touch-icon" href="static/locationmovies/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/locationmovies/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/locationmovies/images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">SF FilmSpot</a>
+          <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/">Movie</a></li>
+            <li class="active"><a href="/">Place</a></li>
+            <li class="active"><a href="/contact">Contact us</a></li>
+          </ul>
+
+          <!-- <form class="pull-left" action="">
+            <input type="text" placeholder="Search">
+              <button class="btn" type="submit">Go</button>
+          </form> -->
+
+          <ul class="nav secondary-nav">
+            <li><a href="/login">register | login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="hero-unit span8 pull-left" style='height:200px;'>
+        <img src="static/locationmovies/images/sample/sf.png" alt="banner" id="banner" height="52%" width="46%"/>
+      </div>
+
+      <div class="well span5 pull-right" style='height:280px;'>
+        <form class='form-stacked'>
+            {% csrf_token %}
+            <h2>Search the film spots</h2>
+            <div class='cleaner_h20'></div>
+            <p>You may live in SF for more than 30 years but you can never imagine there are so many famous films shot around your most familiar place!</p>
+            <div class='cleaner_h20'></div>
+            <!-- <label class="custom-control custom-radio">
+            <input id="radio1" name="radio" type="radio" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Movie</span>
+            </label>
+            <label class="custom-control custom-radio">
+            <input id="radio2" name="radio" type="radio" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Place</span>
+            </label> -->
+            <label id="radio1"><input type="radio" name="optradio">Movie</label>
+            <label id="radio2"><input type="radio" name="optradio">Place</label>
+            <input type="text" placeholder="Search">
+            <div class='cleaner_h20'></div>
+            <input type='submit' value='Here we go&raquo;' id='signup' name='signup' class="btn primary"/>
+        </form>
+      </div>
+
+      <div class='cleaner'></div>
+
+      <div class='span16'>
+        <div class='content-row'>
+
+          <div class='well'>
+            <img src='static/locationmovies/images/sample/milk.png' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>Milk</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>2013</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">Castro Street</h5>
+            <div class='cleaner'></div>
+            <input type='button' class='btn primary large' value='Have a look'/>
+          </div>
+          <div class='well'>
+            <img src='static/locationmovies/images/sample/dirty_harry.png' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>Dirty Harry</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>1971</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">Portsmouth Square</h5>
+            <div class='cleaner'></div>
+            <input type='button' class='btn primary large' value='Have a look'/>
+          </div>
+          <div class='well'>
+            <img src='static/locationmovies/images/sample/48hours.png' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>48 Hours</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>1982</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">MUNI Church Street Station</h5>
+            <div class='cleaner'></div>
+            <input type='button' class='btn primary large' value='Have a look'/>
+          </div>
+          <div class='well'>
+            <img src='static/locationmovies/images/sample/vertigo.png' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>Vertigo</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>1958</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">Golden Gate Bridge</h5>
+            <div class='cleaner'></div>
+            <input type='button' class='btn primary large' value='Have a look'/>
+          </div>
+
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
