@@ -17,7 +17,7 @@ def index(request):
                             movies.production_company = string[4]
                             movies.director = string[6]
                             movies.writer = string[7]
-                            movies.actors = string[8] + " " + string[9] + " " + string[1]
+                            movies.actors = string[8] + " " + string[9] + " " + string[10]
                         except IndexError:
                             pass
     context = {
@@ -64,6 +64,21 @@ def loginUser(request):
             "invalid_reg": "Your credentials doesn't work!"
         }
         return render(request, 'locationmovies/index.html', context)
+
+
+def search(request):
+    return True
+
+
+def display(request):
+    return render(request, 'locationmovies/content.html')
+
+
+def displayAll(request):
+    context ={
+        'movies': Movies.objects.all().order_by('locations').distinct("locations")
+    }
+    return render(request, 'locationmovies/list.html')
 
 
 def contact(request):

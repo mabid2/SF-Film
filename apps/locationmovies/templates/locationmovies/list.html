@@ -102,46 +102,55 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
-                      <td>Milk</td>
-                      <td>2013</td>
-                      <td>Castro Street</td>
-                      <td>
-                        <div class='btn small success disabled'>Add to wishlist</div>
-                        <div class='btn small danger'>Remove</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/dirty_harry copy.png'/></td>
-                      <td>Dirty Harry</td>
-                      <td>1971</td>
-                      <td>Portsmouth Square</td>
-                      <td>
-                        <div class='btn small success'>Add to Wish-List</div>
-                        <div class='btn small danger'>Remove</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/48hours.png'/></td>
-                      <td>48 Hours</td>
-                      <td>1982</td>
-                      <td>MUNI Church Street Station</td>
-                      <td>
-                        <div class='btn small success'>Add to Wish-List</div>
-                        <div class='btn small danger'>Remove</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/vertigo copy.png'/></td>
-                      <td>Vertigo</td>
-                      <td>1958</td>
-                      <td>Golden Gate Bridge</td>
-                      <td>
-                        <div class='btn small success'>Add to Wish-List</div>
-                        <div class='btn small danger'>Remove</div>
-                      </td>
-                  </tr>
+                {% for entry in movies %}
+                    {% if entry %}
+                        <tr>
+                            <td>ImageHere</td>
+                            <td>Title: {{ entry.title }}</td>
+                            <td></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+{#                  <tr>#}
+{#                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>#}
+{#                      <td>Milk</td>#}
+{#                      <td>2013</td>#}
+{#                      <td>Castro Street</td>#}
+{#                      <td>#}
+{#                        <div class='btn small success disabled'>Add to wishlist</div>#}
+{#                        <div class='btn small danger'>Remove</div>#}
+{#                      </td>#}
+{#                  </tr>#}
+{#                  <tr>#}
+{#                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/dirty_harry copy.png'/></td>#}
+{#                      <td>Dirty Harry</td>#}
+{#                      <td>1971</td>#}
+{#                      <td>Portsmouth Square</td>#}
+{#                      <td>#}
+{#                        <div class='btn small success'>Add to Wish-List</div>#}
+{#                        <div class='btn small danger'>Remove</div>#}
+{#                      </td>#}
+{#                  </tr>#}
+{#                  <tr>#}
+{#                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/48hours.png'/></td>#}
+{#                      <td>48 Hours</td>#}
+{#                      <td>1982</td>#}
+{#                      <td>MUNI Church Street Station</td>#}
+{#                      <td>#}
+{#                        <div class='btn small success'>Add to Wish-List</div>#}
+{#                        <div class='btn small danger'>Remove</div>#}
+{#                      </td>#}
+{#                  </tr>#}
+{#                  <tr>#}
+{#                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/vertigo copy.png'/></td>#}
+{#                      <td>Vertigo</td>#}
+{#                      <td>1958</td>#}
+{#                      <td>Golden Gate Bridge</td>#}
+{#                      <td>#}
+{#                        <div class='btn small success'>Add to Wish-List</div>#}
+{#                        <div class='btn small danger'>Remove</div>#}
+{#                      </td>#}
+{#                  </tr>#}
               </tbody>
           </table>
 

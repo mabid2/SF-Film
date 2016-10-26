@@ -67,8 +67,7 @@
           <a class="brand" href="/">SF FilmSpot</a>
           <ul class="nav">
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/">Movie</a></li>
-            <li class="active"><a href="/">Place</a></li>
+            <li class="active"><a href="/displayAll">Movies</a></li>
             <li class="active"><a href="/contact">Contact us</a></li>
           </ul>
 
@@ -107,9 +106,7 @@
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Place</span>
             </label> -->
-            <label id="radio1"><input type="radio" name="optradio">Movie</label>
-            <label id="radio2"><input type="radio" name="optradio">Place</label>
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search by Movie Title">
             <div class='cleaner_h20'></div>
             <input type='submit' value='Here we go&raquo;' id='signup' name='signup' class="btn primary"/>
         </form>
@@ -129,7 +126,10 @@
             <div class='cleaner'></div>
             <h5 id="time-left2">Castro Street</h5>
             <div class='cleaner'></div>
-            <input type='button' class='btn primary large' value='Have a look'/>
+            <form action="/display" method="post">
+              {% csrf_token %}
+              <input type='submit' class='btn primary large' value='Have a look'/>
+            </form>
           </div>
           <div class='well'>
             <img src='static/locationmovies/images/sample/dirty_harry.png' class='content-thumbnail'/>
