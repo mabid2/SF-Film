@@ -102,25 +102,28 @@
                   </tr>
               </thead>
               <tbody>
-                {% for entry in movies %}
-                    {% if entry %}
-                        <tr>
-                            <td>ImageHere</td>
-                            <td>Title: {{ entry.title }}</td>
-                            <td></td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-{#                  <tr>#}
-{#                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>#}
-{#                      <td>Milk</td>#}
-{#                      <td>2013</td>#}
-{#                      <td>Castro Street</td>#}
-{#                      <td>#}
-{#                        <div class='btn small success disabled'>Add to wishlist</div>#}
-{#                        <div class='btn small danger'>Remove</div>#}
-{#                      </td>#}
-{#                  </tr>#}
+{#              <p>Movies:{{ movies }}</p>#}
+{#              <p>Entry: {{ movies.entry }}</p>#}
+{#                {% for entry in movies %}#}
+{#                    <p>Entry: {{ entry }}</p>#}
+{#                    {% if entry %}#}
+{#                            <p>ImageHere</p>#}
+{#                            <p>Entry: {{ movies }}</p>#}
+{#                            <p>Title: {{ entry.title }}</p>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+                  {% for entry in movies %}
+                      <tr>
+                          <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
+                          <td>{{ entry.title }}</td>
+                          <td>{{ entry.release_year }}</td>
+                          <td>{{ entry.location }}</td>
+                          <td>
+                            <div class='btn small success disabled'>Add to wishlist</div>
+                            <div class='btn small danger'>Remove</div>
+                          </td>
+                      </tr>
+                  {% endfor %}
 {#                  <tr>#}
 {#                      <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/dirty_harry copy.png'/></td>#}
 {#                      <td>Dirty Harry</td>#}

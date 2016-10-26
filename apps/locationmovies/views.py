@@ -2,24 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Users, Movies, Favorites
 import csv
 
+
 def index(request):
-    with open(r"C:\databasecsv.csv") as fp:
-        reader = csv.reader(fp, delimiter=',', quotechar='"')
-        for row in reader:
-            if row:
-                for string in row:
-                    if "Actor" not in string:
-                        try:
-                            movies = Movies()
-                            movies.title = string[0]
-                            movies.release_year = string[1]
-                            movies.location = string[2]
-                            movies.production_company = string[4]
-                            movies.director = string[6]
-                            movies.writer = string[7]
-                            movies.actors = string[8] + " " + string[9] + " " + string[10]
-                        except IndexError:
-                            pass
     context = {
         "movies": Movies.objects.all()
     }
@@ -75,10 +59,10 @@ def display(request):
 
 
 def displayAll(request):
-    context ={
-        'movies': Movies.objects.all().order_by('locations').distinct("locations")
+    context = {
+        'movies': Movies.objects.all()
     }
-    return render(request, 'locationmovies/list.html')
+    return render(request, 'locationmovies/list.html', context)
 
 
 def contact(request):

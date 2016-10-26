@@ -56,6 +56,12 @@ class Movies(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return "%s, %s, %s, %s, %s, %s, %s" % (self.title, self.release_year, self.location, self.production_company, self.director, self.writer, self.actors)
+
+    class Meta:
+        ordering = ['location']
+
 
 class Favorites(models.Model):
     location = models.CharField(max_length=60)
