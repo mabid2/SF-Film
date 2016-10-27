@@ -59,7 +59,8 @@
           <a class="brand" href="/">SF FilmSpot</a>
           <ul class="nav">
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/displayAll">Movie</a></li>
+            <li class="active"><a href="/">Movie</a></li>
+            <li class="active"><a href="/">Place</a></li>
             <li class="active"><a href="/contact">Contact us</a></li>
           </ul>
 
@@ -101,30 +102,64 @@
                   </tr>
               </thead>
               <tbody>
-                    {% for entry in movies %}
                       <tr>
                           <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
-                          <td>{{ entry.title }}</td>
-                          <td>{{ entry.release_year }}</td>
-                          <td>{{ entry.location }}</td>
+                          <td>{{ movies.title }}</td>
+                          <td>{{ movies.release_year }}</td>
+                          <td>{{ movies.location }}</td>
                           <td>
-                              <form action="/addFav" method="post">
-                                  {% csrf_token %}
-                                  <input type="submit" class='btn small success disabled'></input>
-                              </form>
+                            <div class='btn small success disabled'>Add to wishlist</div>
                           </td>
                       </tr>
-                  {% endfor %}
               </tbody>
           </table>
 
+          <!-- <h2>Favorites</h2>
+          <table class='zebra-striped ads'>
+              <thead>
+                  <tr>
+                      <th class='span2'></th>
+                      <th class='span4'>Title</th>
+                      <th class='span2'>Price</th>
+                      <th class='span2'>Location</th>
+                      <th class='span4'>Action</th>
+                  </tr>
+              </thead> -->
+              <!-- <tbody>
+                  <tr>
+                    <td class='mini-thumbnail'><img src='images/sample/car3.jpg'/></td>
+                    <td>BMW... yes M5</td>
+                    <td>$25,000</td>
+                    <td>Seattle, WA</td>
+                    <td>
+                      <div class='btn small info'>Contact Seller</div>
+                      <div class='btn small danger'>Remove</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='mini-thumbnail'><img src='images/sample/car4.jpg'/></td>
+                    <td>BMW M5</td>
+                    <td>$20,000</td>
+                    <td>Seattle, WA</td>
+                    <td>
+                      <div class='btn small info'>Contact Seller</div>
+                      <div class='btn small danger'>Remove</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='mini-thumbnail'><img src='images/sample/car5.jpg'/></td>
+                    <td>BMW M5</td>
+                    <td>N/A</td>
+                    <td>Seattle, WA</td>
+                    <td>
+                      <div class='btn small info'>Contact Seller</div>
+                      <div class='btn small danger'>Remove</div>
+                    </td> -->
+                <!-- </tr>
+              </tbody>
+          </table> -->
         </div><!-- end of center content -->
       </div>
-
-      <footer>
-        <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
-      </footer>
     </div>
-
-  </body>
+</body>
 </html>

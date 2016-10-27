@@ -10,5 +10,9 @@ urlpatterns = [
     url(r'^signin$', views.loginUser),
     url(r'^search$', views.search),
     url(r'^display$', views.display),
-    url(r'^displayAll$', views.displayAll)
+    url(r'^displayAll$', views.displayAll),
+    url(r'^search$', views.search),
+    # url(r'^addFav$', views.addWishlist),
+    # url(r'^wishlist$', views.displayWishlist)
+
 ]

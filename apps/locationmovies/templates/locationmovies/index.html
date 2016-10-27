@@ -90,7 +90,9 @@
       </div>
 
       <div class="well span5 pull-right" style='height:280px;'>
-        <form class='form-stacked'>
+
+
+        <form  method="post" action="/search" class='form-stacked'>
             {% csrf_token %}
             <h2>Search the film spots</h2>
             <div class='cleaner_h20'></div>
@@ -106,9 +108,9 @@
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Place</span>
             </label> -->
-            <input type="text" placeholder="Search by Movie Title">
+            <input type="text" name="search" id="id_search" value="{{ query }}" placeholder="Search by Movie Title">
             <div class='cleaner_h20'></div>
-            <input type='submit' value='Here we go&raquo;' id='signup' name='signup' class="btn primary"/>
+            <input type='submit' value='Find It &raquo;' id='signup' name='signup' class="btn primary"/>
         </form>
       </div>
 

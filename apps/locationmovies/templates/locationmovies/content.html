@@ -114,13 +114,13 @@
 
               <!-- right side content - price and basic information -->
               <div class='span8'>
-
+                {% for entry in movies %}
                 <div class='row'>
                   <div class='span2'>
                     Film Location:
                   </div>
                   <div class='span6'>
-                    Golden Gate Bridge, San Francisco, United States
+                    {{ entry.location }}
                   </div>
                 </div>
 
@@ -131,7 +131,7 @@
                     Year:
                   </div>
                   <div class='span6'>
-                    <span class='time-left'>1958</span>
+                    <span class='time-left'>{{ entry.year }}</span>
                   </div>
                 </div>
                 <div class='cleaner_h10'></div>
@@ -164,6 +164,7 @@
                   </div>
                 </div>
                 <div class='btn small success'>Add to Wish-List</div>
+                {% endfor %}
               </div><!-- end of right side content - price and basic description -->
             </div>
           </div>

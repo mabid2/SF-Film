@@ -59,7 +59,8 @@
           <a class="brand" href="/">SF FilmSpot</a>
           <ul class="nav">
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/displayAll">Movie</a></li>
+            <li class="active"><a href="/">Movie</a></li>
+            <li class="active"><a href="/">Place</a></li>
             <li class="active"><a href="/contact">Contact us</a></li>
           </ul>
 
@@ -101,30 +102,21 @@
                   </tr>
               </thead>
               <tbody>
-                    {% for entry in movies %}
+                  {% for entry in movies %}
                       <tr>
                           <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
                           <td>{{ entry.title }}</td>
                           <td>{{ entry.release_year }}</td>
                           <td>{{ entry.location }}</td>
                           <td>
-                              <form action="/addFav" method="post">
-                                  {% csrf_token %}
-                                  <input type="submit" class='btn small success disabled'></input>
-                              </form>
+                            <div class='btn small success disabled'>Add to wishlist</div>
                           </td>
                       </tr>
                   {% endfor %}
               </tbody>
           </table>
-
         </div><!-- end of center content -->
       </div>
-
-      <footer>
-        <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
-      </footer>
     </div>
-
-  </body>
+</body>
 </html>

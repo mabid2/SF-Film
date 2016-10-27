@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Users, Movies, Favorites
+from django.db.models import Count
 import csv
 
 
@@ -50,9 +51,6 @@ def loginUser(request):
         return render(request, 'locationmovies/index.html', context)
 
 
-def search(request):
-    return True
-
 
 def display(request):
     return render(request, 'locationmovies/content.html')
@@ -60,10 +58,28 @@ def display(request):
 
 def displayAll(request):
     context = {
+        # 'movies': Movies.objects.raw('SELECT * from Movies')
         'movies': Movies.objects.all()
     }
     return render(request, 'locationmovies/list.html', context)
 
 
+def search(request):
+    if request.method == 'POST':
+        queryr = request.POST.get('search')
+        result = Movies.objects.filter(title__contains=queryr).first()
+        print result
+
+    context = {
+        "movies": result
+    }
+    return render(request, 'locationmovies/searchResult.html', context)
+
+
 def contact(request):
     return render(request, 'locationmovies/contact_us.html')
+
+
+# def addWishlist(request):
+#
+#     return redirect('/')

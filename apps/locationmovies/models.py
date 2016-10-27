@@ -60,11 +60,11 @@ class Movies(models.Model):
         return "%s, %s, %s, %s, %s, %s, %s" % (self.title, self.release_year, self.location, self.production_company, self.director, self.writer, self.actors)
 
     class Meta:
-        ordering = ['location']
+        ordering = ['title']
 
 
 class Favorites(models.Model):
-    location = models.CharField(max_length=60)
+    movie_id = models.ManyToManyField(Movies)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -75,7 +75,7 @@ class Users(models.Model):
     password = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    favorite_id = models.ManyToManyField(Favorites)
+    favorites_id = models.OneToOneField(Favorites, null=True)
     UserManager = UserManager()
 
 
