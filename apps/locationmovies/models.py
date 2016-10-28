@@ -10,7 +10,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 class UserManager(models.Manager):
     def logUser(self, username_in, pwd_in):
         error = False
-        print (username_in)
+        print (username_in), "*" * 100
         if len(username_in) < 2:
             error = True  # END OF EMAIL VALIDATION
 
@@ -20,39 +20,45 @@ class UserManager(models.Manager):
         if error is True:
             return False
         else:
-            passwordHash = Users.UserManager.filter(username=username_in).last().password.encode()
+            passwordHash = Users.UserManager.get(username=username_in).password.encode()
+            print passwordHash
             if bcrypt.hashpw(pwd_in, passwordHash) == passwordHash:
                 return True
+            else:
+                return False
 
     def regUser(self, username_up, email_up, pwd_up):
-        error = False
+        error = []
         if len(username_up) < 2:
-            error = True
-        elif not (username_up.isalpha()):
-            error = True  # END OF FIRST NAME VALIDATIONN
+            # messages.error.extra_tags = 'username'
+            error.append("Too short!! Username should be at least 2 characters")
+        elif not username_up:
+            error.append("Username field must be filled out")  # END OF FIRST NAME VALIDATION
 
         if not EMAIL_REGEX.match(email_up):
-            error = True  # END OF EMAIL VALIDATION
+            error.append("Email is in wrong format")  # END OF EMAIL VALIDATION
 
         if len(pwd_up) < 8:
-            error = True  # END OF PASSWORD VALIDATION
-
-        if error is True:
-            return False
+            error.append('Password is too short')
+            # if pwd_up != passwordconf_up:
+            # END OF PASSWORD VALIDATION
+        if len(error) > 0:
+            return [False, error]
         else:
             hashedPW = bcrypt.hashpw(pwd_up, bcrypt.gensalt())
-            Users.UserManager.create(username=username_up, email=email_up, password=hashedPW, created_at=now)
-            return True
+            newuser = Users.UserManager.create(username=username_up, email=email_up, password=hashedPW, created_at=now)
+            # print newuser.username, "*" * 100
+            return [True]
 
 
 class Movies(models.Model):
-    title = models.CharField(max_length=60)
-    release_year = models.CharField(max_length=4)
-    location = models.CharField(max_length=100)
-    production_company = models.CharField(max_length=40)
-    director = models.CharField(max_length=40)
-    writer = models.CharField(max_length=40)
-    actors = models.CharField(max_length=60)
+    title = models.CharField(max_length=60, null=True)
+    release_year = models.CharField(max_length=4, null=True)
+    location = models.CharField(max_length=100, null=True)
+    production_company = models.CharField(max_length=40, null=True)
+    director = models.CharField(max_length=40, null=True)
+    writer = models.CharField(max_length=40, null=True)
+    actors = models.CharField(max_length=60, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -64,7 +70,7 @@ class Movies(models.Model):
 
 
 class Favorites(models.Model):
-    movie_id = models.ManyToManyField(Movies)
+    movie_id = models.ManyToManyField(Movies, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

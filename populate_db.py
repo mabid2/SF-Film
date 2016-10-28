@@ -6,7 +6,7 @@ project_home = "C:\Users\denys\Desktop\CodingDojo\Project1(django)\films"
 sys.path.append(project_home)
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-dataReader = csv.reader(open(csv_filepathname), delimiter=',', quotechar='"')
+dataReader = csv.reader(open("C:\databasecsv.csv"), delimiter=',', quotechar='"')
 readerData = list(dataReader)
 for row in readerData:
     if row:

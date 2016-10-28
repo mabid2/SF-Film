@@ -108,7 +108,15 @@
                           <td>{{ movies.release_year }}</td>
                           <td>{{ movies.location }}</td>
                           <td>
-                            <div class='btn small success disabled'>Add to wishlist</div>
+                              <form action="/addFav/{{ movies.id }}" method="post">
+                                  {% csrf_token %}
+                                  <input type="submit" value="AddWishlist" class='btn small success'>
+                              </form>
+                              <form action="/display/{{ movies.id }}" method="post">
+                                  {% csrf_token %}
+                                  <input type="submit" value="Details" class='btn small success'>
+                              </form>
+                          </td>
                           </td>
                       </tr>
               </tbody>

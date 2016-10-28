@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Login &amp; Sign Up Page 1</title>
+    {% include './header.html' %}
+
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -37,26 +39,19 @@
 
     <!-- Le styles -->
     <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-      .switch{
-        display:inline-block;
-        cursor:pointer;
-      }
-    </style>
+
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="static/locationmovies/images/favicon.ico">
     <link rel="apple-touch-icon" href="static/locationmovies/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="static/locationmovies/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="static/locationmovies/images/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" href="static/locationmovies/styles/mystyles.css">
   </head>
 
   <body>
 
-    <div class="topbar">
+    <!-- <div class="topbar">
       <div class="fill">
         <div class="container">
           <a class="brand" href="/">SF FilmSpot</a>
@@ -78,7 +73,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container">
       <div class='row'>
@@ -91,7 +86,19 @@
             <div class='cleaner_h20'></div>
 
             <div class="clearfix">
-              <label for="email_up">Email</label>
+              <label for="email_up">Email:
+                {% if messages %}
+
+                    {% for message in messages %}
+                      {% if message.extra_tags == 'email' %}
+
+                      {{ message }}
+
+                      {% endif %}
+                    {% endfor %}
+
+                {% endif %}
+              </label>
               <div class="input">
                 <input id="email_up" name="email_up" size="30" type="text" class='xlarge'/>
                 <!--
@@ -103,7 +110,19 @@
             </div>
 
             <div class="clearfix">
-              <label for="username_up">Username</label>
+              <label for="username_up">Username:
+              {% if messages %}
+
+                  {% for message in messages %}
+                    {% if message.extra_tags == 'username' %}
+
+                    {{ message }}
+
+                    {% endif %}
+                  {% endfor %}
+
+              {% endif %}
+              </label>
               <div class="input">
                 <input id="username_up" name="username_up" size="30" type="text" class='xlarge'/>
                 <!--
@@ -115,7 +134,20 @@
             </div>
 
             <div class="clearfix">
-              <label for="pwd_up">Password</label>
+
+              <label for="pwd_up">Password:
+                {% if messages %}
+
+                    {% for message in messages %}
+                      {% if message.extra_tags == 'password' %}
+
+                      {{ message }}
+
+                      {% endif %}
+                    {% endfor %}
+
+                {% endif %}
+              </label>
               <div class="input">
                 <input id="pwd_up" name="pwd_up" size="30" type="password" class='xlarge'/>
                 <!--
@@ -123,6 +155,31 @@
                   <span class='label important'>Warning</span> too easy - even I can guess it
                </span>
               -->
+              </div>
+            </div>
+
+            <div class="clearfix">
+
+              <label for="passwordconf_up">Confirm Password:
+                {% if messages %}
+
+                    {% for message in messages %}
+                      {% if message.extra_tags == 'passwordconfirm' %}
+
+                      {{ message }}
+
+                      {% endif %}
+                    {% endfor %}
+
+                {% endif %}
+              </label>
+              <div class="input">
+                <input id="passwordconf_up" name="passwordconf_up" size="30" type="password" class='xlarge'/>
+                <!--
+                <span class="help-block">
+                  <span class='label important'>Warning</span> the username already exists
+                </span>
+                -->
               </div>
             </div>
 
@@ -150,7 +207,17 @@
             <div class='cleaner_h20'></div>
 
             <div class="clearfix">
-              <label for="username_in">Username</label>
+
+
+              <label for="username_in">Username:
+                {% if messages %}
+                    {% for message in messages %}
+                      {% if message.extra_tags == 'username' %}
+                      {{ message }}
+                      {% endif %}
+                    {% endfor %}
+                {% endif %}
+              </label>
               <div class="input">
                 <input id="username_in" name="username_in" size="30" type="text"/>
                 <!--
@@ -162,7 +229,17 @@
             </div>
 
             <div class="clearfix">
-              <label for="pwd_in">Password</label>
+
+
+              <label for="pwd_in">Password:
+                {% if messages %}
+                    {% for message in messages %}
+                      {% if message.extra_tags == 'password' %}
+                      {{ message }}
+                      {% endif %}
+                    {% endfor %}
+                {% endif %}
+              </label>
               <div class="input">
                 <input id="pwd_in" name="pwd_in" size="30" type="password"/>
                 <!--
@@ -213,13 +290,11 @@
         </div>
       </div>
       <div class='cleaner'></div>
+    <footer style='text-align:center;'>
+       <p>&copy; Coding Dojo 2016 by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
+    </footer>
 
+   </div> <!-- /container -->
 
-      <footer style='text-align:center;'>
-        <p>&copy; Coding Dojo 2016 by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
-      </footer>
-
-    </div> <!-- /container -->
-
-  </body>
+ </body>
 </html>

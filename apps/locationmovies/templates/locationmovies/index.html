@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>index.html</title>
+    {% include './header.html' %}
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -17,40 +18,7 @@
 
     <!-- Le styles -->
     <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-      .content-row div{
-        display:inline-block;
-        width:192px;
-      }
-      .content-row input.btn{
-        margin:auto;
-        font-weight:bold;
-        width:100%;
-      }
-      img.content-thumbnail{
-        width:100%;
-      }
-      .title{
-        font-weight:bold;
-        font-size:18pt;
-        text-align:center;
-      }
-      .current-price{
-        color:#b94a48;
-        font-weight:bold;
-        font-size:22pt;
-        text-align:center;
-      }
-      .time-left{
-        color:#468847;
-        font-weight:bold;
-        font-size:18pt;
-        text-align:center;
-      }
-    </style>
+    <link rel="stylesheet" href="static/locationmovies/styles/mystyles.css">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="static/locationmovies/images/favicon.ico">
@@ -60,38 +28,12 @@
   </head>
 
   <body>
-
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="/">SF FilmSpot</a>
-          <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/displayAll">Movies</a></li>
-            <li class="active"><a href="/contact">Contact us</a></li>
-          </ul>
-
-          <!-- <form class="pull-left" action="">
-            <input type="text" placeholder="Search">
-              <button class="btn" type="submit">Go</button>
-          </form> -->
-
-          <ul class="nav secondary-nav">
-            <li><a href="/login">register | login</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
     <div class="container">
 
       <div class="hero-unit span8 pull-left" style='height:200px;'>
         <img src="static/locationmovies/images/sample/sf.png" alt="banner" id="banner" height="52%" width="46%"/>
       </div>
-
-      <div class="well span5 pull-right" style='height:280px;'>
-
-
+        <div class="well span5 pull-right" style='height:280px;'>
         <form  method="post" action="/search" class='form-stacked'>
             {% csrf_token %}
             <h2>Search the film spots</h2>
@@ -112,6 +54,7 @@
             <div class='cleaner_h20'></div>
             <input type='submit' value='Find It &raquo;' id='signup' name='signup' class="btn primary"/>
         </form>
+        </div>
       </div>
 
       <div class='cleaner'></div>

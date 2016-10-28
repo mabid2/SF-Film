@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Account 1</title>
+    {% include './header.html' %}
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -22,27 +23,8 @@
 
     <!-- Le styles -->
     <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-      .sidebar.well.span4{
-        width: 180px;
-      }
-      .ads tbody tr td{
-        cursor:pointer !important;
-      }
-      .highlight td{
-        font-weight:bold;
-      }
-      td.mini-thumbnail img{
-        max-height:50px;
-        max-width:100px;
-      }
-      td.mini-thumbnail{
-        text-align:center;
-      }
-    </style>
+    <link rel="stylesheet" href="static/locationmovies/styles/mystyles.css">
+
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="static/locationmovies/images/favicon.ico">
@@ -52,26 +34,6 @@
   </head>
 
   <body>
-
-    <div class="topbar">
-      <div class="fill">
-        <div class="container span18">
-          <a class="brand" href="/">SF FilmSpot</a>
-          <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/displayAll">Movie</a></li>
-            <li class="active"><a href="/contact">Contact us</a></li>
-          </ul>
-
-          <form class="pull-left" action="">
-            <input type="text" placeholder="Search">
-              <button class="btn" type="submit">Go</button>
-          </form>
-
-          <p class="pull-right">Logged in as <a href="#">Guest</a></p>
-        </div>
-      </div>
-    </div>
 
     <div class="container span18">
       <div class='cleaner_h40'></div>
@@ -108,9 +70,13 @@
                           <td>{{ entry.release_year }}</td>
                           <td>{{ entry.location }}</td>
                           <td>
-                              <form action="/addFav" method="post">
+                              <form action="/addFav/{{ entry.id }}" method="post">
                                   {% csrf_token %}
-                                  <input type="submit" class='btn small success disabled'></input>
+                                  <input type="submit" value="AddWishlist" class='btn small success'>
+                              </form>
+                              <form action="/display/{{ entry.id }}" method="post">
+                                  {% csrf_token %}
+                                  <input type="submit" value="Details" class='btn small success'>
                               </form>
                           </td>
                       </tr>
