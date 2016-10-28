@@ -1,53 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script>
-            $(document).ready(function(){
-                $.get("http://api.openweathermap.org/data/2.5/forecast?q=san%20francisco&APPID=4167f164adae7cda73a4d101b1503aee", function(res) {
-                    console.log(res);
-                }, "json");
-            })
-    </script>
-    <link rel="stylesheet" href="static/locationmovies/styles/mystyles.css">
-  </head>
-  <body>
-    <div class="topbar">
-      <div class="fill">
+<div class="topbar">
+    <div class="fill">
         <div class="container span18">
-          <a class="brand" href="/">SF FilmSpot</a>
-          <ul class="nav">
-            <li class='radio'><a href="/">Home</a></li>
-            <li class="radio"><a href="/displayAll">Movie</a></li>
-            <li class="radio"><a href="/contact">Contact us</a></li>
-          </ul>
+            <a class="brand" href="/">SF FilmSpot</a>
+            <ul class="nav">
+                <li class='radio'><a href="/">Home</a></li>
+                <li class="radio"><a href="/displayAll">Movies</a></li>
+                <li class="radio"><a href="/contact">Contact us</a></li>
+            </ul>
 
-          <form class="pull-right" action="">
-            <input type="text" placeholder="Search">
-              <button class="btn" type="submit">Go</button>
-          </form>
-          {% if not request.session.name %}
-            <h2 class="pull-left">Welcome Guest!!!   </h2>
-          <form action='/login' class="pull-right">
-            <div class="pull-right">
-              <button type="submit"class="btn btn-primary">Login</button>
-              <button type="submit"class="btn btn-success">Sign Up</button>
-            </div>
-          </form>
-          {% endif %}
-
-          {% if request.session.name %}
-            <h2 class="pull-left">Welcome {{request.session.name}}!!!</h2>
-            <form class="pull-right" action="/logout" method="post">
-              {% csrf_token %}
-              <input type="hidden" name="logout">
-              <button type="submit" name="logoutbtn" class='btn btn-secondary'>Logout</button>
+            <form method="post" class="pull-right" action="/search">        {#Header search#}
+                {% csrf_token %}
+                <input type="text" name="search" id="id_search" value="{{ query }}" placeholder="Search">
+                <input type='submit' value='Find It &raquo;' id='signup' name='signup' class="btn primary"/>
             </form>
-          {% endif %}
+            {% if not request.session.name %}
+                <h2 class="pull-left">Welcome Guest</h2>
+                <form action='/login' class="pull-right">
+                    {% csrf_token %}
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            {% endif %}
+
+            {% if request.session.name %}
+                <h2 class="pull-left">Welcome {{ request.session.name }}</h2>
+                <form class="pull-right" action="/logout" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="logout">
+                    <button type="submit" name="logoutbtn" class='btn btn-secondary'>Logout</button>
+                </form>
+            {% endif %}
         </div>
-      </div>
     </div>
-  </body>
-</html>
+</div>

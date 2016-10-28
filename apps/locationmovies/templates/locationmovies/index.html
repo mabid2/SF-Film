@@ -1,123 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>index.html</title>
-    {% include './header.html' %}
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% extends './base_body.html' %}
 
-    <script src="static/locationmovies/scripts/jquery.min.js"></script>
-    <script src="static/locationmovies/scripts/bootstrap-dropdown.js"></script>
+{% block main_content %}
+<body>
+<div class="container">
 
-    <script type='text/javascript'>
-    $(document).ready(function(){
-      $('#topbar').dropdown();
-    });
-    </script>
-
-    <!-- Le styles -->
-    <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/locationmovies/styles/mystyles.css">
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="static/locationmovies/images/favicon.ico">
-    <link rel="apple-touch-icon" href="static/locationmovies/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="static/locationmovies/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="static/locationmovies/images/apple-touch-icon-114x114.png">
-  </head>
-
-  <body>
-    <div class="container">
-
-      <div class="hero-unit span8 pull-left" style='height:200px;'>
+    <div class="hero-unit span8 pull-left" style='height:200px;'>
         <img src="static/locationmovies/images/sample/sf.png" alt="banner" id="banner" height="52%" width="46%"/>
-      </div>
-        <div class="well span5 pull-right" style='height:280px;'>
-        <form  method="post" action="/search" class='form-stacked'>
+    </div>
+
+    <div class="well span5 pull-right" style='height:280px;'>
+
+        <form method="post" action="/search" class='form-stacked'>
             {% csrf_token %}
             <h2>Search the film spots</h2>
             <div class='cleaner_h20'></div>
-            <p>You may live in SF for more than 30 years but you can never imagine there are so many famous films shot around your most familiar place!</p>
+            <p>You may live in SF for more than 30 years but you can never imagine there are so many famous films shot
+                around your most familiar place!</p>
             <div class='cleaner_h20'></div>
             <input type="text" name="search" id="id_search" value="{{ query }}" placeholder="Search by Movie Title">
             <div class='cleaner_h20'></div>
             <input type='submit' value='Find It &raquo;' id='signup' name='signup' class="btn primary"/>
         </form>
-        </div>
-      </div>
+    </div>
+</div>
 
-      <div class='cleaner'></div>
-
+<div class='cleaner'></div>
 
 <div class='span16'>
-       <div class='content-row'>
+    <div class='content-row'>
 
-         <div class='well'>
-           <img src='static/locationmovies/images/sample/apes.jpg' class='content-thumbnail'/>
-           <div class='cleaner'></div>
-           <div class='title'>Dawn of the Planet of the Apes</div>
-           <div class='cleaner'></div>
-           <div class='current-price'>2014</div>
-           <div class='cleaner'></div>
-           <h5 id="time-left2">SF City Hall</h5>
-           <div class='cleaner'></div>
-           <form action="/displayapes" method="post">
-             {% csrf_token %}
-             <input type='submit' class='btn primary large' value='Have a look'/>
-           </form>
-         </div>
-         <div class='well'>
-           <img src='static/locationmovies/images/sample/dirty_harry.png' class='content-thumbnail'/>
-           <div class='cleaner'></div>
-           <div class='title'>Dirty Harry</div>
-           <div class='cleaner'></div>
-           <div class='current-price'>1971</div>
-           <div class='cleaner'></div>
-           <h5 id="time-left2">Portsmouth Square</h5>
-           <div class='cleaner'></div>
-           <form action="/displayharry" method="post">
-             {% csrf_token %}
-             <input type='submit' class='btn primary large' value='Have a look'/>
-           </form>
-         </div>
-         <div class='well'>
-           <img src='static/locationmovies/images/sample/sanandreas.jpg' class='content-thumbnail'/>
-           <div class='cleaner'></div>
-           <div class='title'>San Andreas</div>
-           <div class='cleaner'></div>
-           <div class='current-price'>2015</div>
-           <div class='cleaner'></div>
-           <h5 id="time-left2">Coit Tower</h5>
-           <div class='cleaner'></div>
-           <form action="/displaysan" method="post">
-             {% csrf_token %}
-             <input type='submit' class='btn primary large' value='Have a look'/>
-           </form>
-         </div>
-         <div class='well'>
-           <img src='static/locationmovies/images/sample/vertigo.png' class='content-thumbnail'/>
-           <div class='cleaner'></div>
-           <div class='title'>Vertigo</div>
-           <div class='cleaner'></div>
-           <div class='current-price'>1958</div>
-           <div class='cleaner'></div>
-           <h5 id="time-left2">Golden Gate Bridge</h5>
-           <div class='cleaner'></div>
-           <form action="/displayvertigo" method="post">
-             {% csrf_token %}
-             <input type='submit' class='btn primary large' value='Have a look'/>
-           </form>
-         </div>
+        <div class='well'>
+            <img src='static/locationmovies/images/sample/apes.jpg' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>Dawn of the Planet of the Apes</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>2014</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">SF City Hall</h5>
+            <div class='cleaner'></div>
 
-       </div>
-     </div>
+            <form action="/displayapes" method="post">
+                {% csrf_token %}
+                <input type='submit' class='btn primary large' value='Have a look'/>
+            </form>
+        </div>
 
-     <footer>
-       <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
-     </footer>
+        <div class='well'>
+            <img src='static/locationmovies/images/sample/dirty_harry.png' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>Dirty Harry</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>1971</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">Portsmouth Square</h5>
+            <div class='cleaner'></div>
+            <form action="/displayharry" method="post">
+                {% csrf_token %}
+                <input type='submit' class='btn primary large' value='Have a look'/>
+            </form>
+        </div>
 
-   </div> <!-- /container -->
+        <div class='well'>
+            <img src='static/locationmovies/images/sample/sanandreas.jpg' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>San Andreas</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>2015</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">Coit Tower</h5>
+            <div class='cleaner'></div>
+            <form action="/displaysan" method="post">
+                {% csrf_token %}
+                <input type='submit' class='btn primary large' value='Have a look'/>
+            </form>
+        </div>
 
- </body>
-</html>
+        <div class='well'>
+            <img src='static/locationmovies/images/sample/vertigo.png' class='content-thumbnail'/>
+            <div class='cleaner'></div>
+            <div class='title'>Vertigo</div>
+            <div class='cleaner'></div>
+            <div class='current-price'>1958</div>
+            <div class='cleaner'></div>
+            <h5 id="time-left2">Golden Gate Bridge</h5>
+            <div class='cleaner'></div>
+            <form action="/displayvertigo" method="post">
+                {% csrf_token %}
+                <input type='submit' class='btn primary large' value='Have a look'/>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

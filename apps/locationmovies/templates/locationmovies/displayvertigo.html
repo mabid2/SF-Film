@@ -1,37 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Content_1</title>
-    {% include './header.html' %}
-    <meta name="description" content="">
-    <meta name="author" content="">
-    {% load staticfiles %}
-    <script src="{% static 'locationmovies/scripts/jquery.min.js' %}"></script>
-    <script src="{% static 'locationmovies/scripts/bootstrap-dropdown.js' %}"></script>
-    <script type='text/javascript'>
-    $(document).ready(function(){
-      $('#topbar').dropdown();
-    });
-    </script>
-    <!-- Le styles -->
-    <link href="{% static 'locationmovies/styles/bootstrap.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'locationmovies/styles/mystyles.css' %}">
-  </head>
-  <body>
+{% extends './base_body.html' %}
+{% load staticfiles%}
+
+{% block main_content %}
     <div class="container span18">
-      <ul class="breadcrumb">
-        <li><a href="#">Home</a> <span class="divider">/</span></li>
-        <li><a href="#">list</a> <span class="divider">/</span></li>
-        <li class="active">1</li>
-      </ul>
       <div class="row">
         <div class='span14'>
           <!-- Title & Description -->
           <h1>Vertigo</h1>
-          <!-- <p style='margin-top:-20px'>
-            Vertigo is a 1958 American psychological thriller film directed and produced by Alfred Hitchcock. The story was based on the 1954 novel D'entre les morts (From Among the Dead) by Boileau-Narcejac.
-          </p> -->
           <div class='cleaner_h20'></div>
           <!-- inside content -->
           <div class='span14'>
@@ -94,10 +69,6 @@
           </div>
         </div>
         <div class='span4'>
-          <!-- <h4 style='display:inline;'>Ratings</h4> ( 4 <span style='font-size:12pt;'>&#10031;</span> )
-          <div class='cleaner'></div>
-          &#10030;&#10030;&#10030;&#10030;&#10025; 82% Positive feedback
-          <div class='cleaner_h10'></div> -->
         <div class='span4'>
           <iframe width="220" height="280" frameborder="1" scrolling="yes" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q='+golden+gate+bridge+'&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=near&amp;output=embed"></iframe><br />
           <small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=seattle+downtown&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
@@ -113,10 +84,6 @@
             I've never seen the movie, but I can say first hand that this bridge, with its beautiful red color, would be a magnificent backdrop to any movie.
           </p>
           <div class='separator cleaner_h5'></div>
-          <!-- <h4>Comments from <a href="#">Ryan</a></h4>
-          <p>
-            It looked bigger in the movie. Kind of disappointed...but there was a good food truck parked in front of the building, so that was a bonus.
-          </p> -->
         </div>
       </div>
       <!-- <div class='well span6'> -->
@@ -130,10 +97,6 @@
         </form>
       </div>
       <!-- end of main description -->
-      <footer>
-        <p>&copy; Coding Dojo 2016 By <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
-      </footer>
     </div> <!-- /container -->
     </div>
-  </body>
-</html>
+{% endblock %}

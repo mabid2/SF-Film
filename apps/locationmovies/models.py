@@ -52,7 +52,6 @@ class UserManager(models.Manager):
         else:
             hashedPW = bcrypt.hashpw(pwd_up, bcrypt.gensalt())
             newuser = Users.UserManager.create(username=username_up, email=email_up, password=hashedPW, created_at=now)
-            # print newuser.username, "*" * 100
             return [True]
 
     def validuser(self, username_valid):
@@ -80,17 +79,8 @@ class UserManager(models.Manager):
             return False
 
 class MoviesManager(models.Manager):
-    def addMovie(self, id):
+    def addMovie(self):
         return True
-
-
-
-#
-# class Favorites(models.Model):
-#     # list = models.CharField(max_length=500)
-#     movie_id = models.ManyToManyField(Movies, null=True)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Users(models.Model):
@@ -99,7 +89,6 @@ class Users(models.Model):
     password = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    # favorite_movies = models.ManyToManyField(Movies)
     UserManager = UserManager()
 
 
@@ -113,7 +102,6 @@ class Movies(models.Model):
     actors = models.CharField(max_length=60, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    # favorited_by = models.ForeignKey('Favorites', on_delete=models.CASCADE)
     favorited_by = models.ManyToManyField(Users)
     MoviesManager = MoviesManager()
 
