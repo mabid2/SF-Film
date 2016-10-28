@@ -11,7 +11,6 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 class UserManager(models.Manager):
     def logUser(self, username_in, pwd_in):
         error = False
-        print (username_in), "*" * 100
         if len(username_in) < 2:
             error = True  # END OF EMAIL VALIDATION
 
@@ -21,12 +20,7 @@ class UserManager(models.Manager):
         if error is True:
             return False
         else:
-            print "9" * 100,
-            AllUsers = Users.UserManager.all()
-            for users in AllUsers:
-                print users.username
             passwordHash = Users.UserManager.get(username=username_in).password.encode()
-            print passwordHash
             if bcrypt.hashpw(pwd_in, passwordHash) == passwordHash:
                 return True
             else:

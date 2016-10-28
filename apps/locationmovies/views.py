@@ -16,7 +16,6 @@ def login(request):
 
 
 def registerUser(request):
-    print "Hello!"
     username = request.POST.get("username_up")
     email = request.POST.get("email_up")
     password = request.POST.get("pwd_up").encode()
@@ -49,8 +48,6 @@ def loginUser(request):
     if Users.UserManager.logUser(username, password):
         request.session['name'] = request.POST['username_in']
 
-        print "Successful Login"
-        print Users.UserManager.logUser(username, password)
         context = {
             "name": Users.UserManager.filter(username=username, password=password).last()
         }
@@ -69,7 +66,7 @@ def logout(request):
 
 
 def display(request, id):
-    print "IN the display function"
+
     request.session['current_row'] = id
     row = Movies.MoviesManager.filter(id=id)[0]
     context = {

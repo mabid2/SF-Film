@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Content_1</title>
     {% include './header.html' %}
@@ -11,130 +11,134 @@
     <script src="{% static 'locationmovies/scripts/bootstrap-dropdown.js' %}"></script>
 
     <script type='text/javascript'>
-    $(document).ready(function(){
-      $('#topbar').dropdown();
-    });
+        $(document).ready(function () {
+            $('#topbar').dropdown();
+        });
     </script>
 
     <!-- Le styles -->
     <link href="{% static 'locationmovies/styles/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'locationmovies/styles/mystyles.css' %}">
 
-  </head>
+</head>
 
-  <body>
-    <div class="container span18">
-        <div class="row">
-            <div class='span14'>
-                <h1>{{ title }}</h1>
-                <div class='cleaner_h20'></div>
-                <div class='span14'>
-                    <div class='row'>
-                        <div class='span6'>
-                            <div id='main-thumbnail'>
-                                <img src="{% static 'locationmovies/images/sample/sf.png' %}"/>
-                                <p>Expand</p>
-                            </div>
-                        </div>
-                        <div class='span8'>
-                            <div class='row'>
-                                <div class='span2'>
-                                    Film Location:
-                                </div>
-                                <div class='span6'>
-                                    {{ location }}
-                                </div>
-                            </div>
-                            <div class='cleaner_h10'></div>
-                            <div class='row'>
-                                <div class='span2'>
-                                    Year:
-                                </div>
-                                <div class='span6'>
-                                    <span class='time-left'>{{ release_year }}</span>
-                                </div>
-                            </div>
-                            <div class='cleaner_h10'></div>
-                            <div class='row'>
-                                <div class='span2'>
-                                    Director:
-                                </div>
-                                <div class='span6'>
-                                    {{ director }}
-                                </div>
-                            </div>
-                            <div class='cleaner_h10'></div>
-                            <div class='row'>
-                                <div class='span2'>
-                                    Actor:
-                                </div>
-                                <div class='span6'>
-                                    {{ actor }}
-                                </div>
-                            </div>
-                            <div class='cleaner_h10'></div>
-                            <div class='row'>
-                                <div class='span2'>
-                                    Description:
-                                </div>
-                                <div class='span6'>
-                                    {{ description }}
-                                </div>
-                            </div>
-                            <div class='btn small success'>Add to Wish-List</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='span4'>
-                <iframe width="220" height="280" frameborder="1" scrolling="yes" marginheight="0" marginwidth="0"
-                        src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q='+{{ location }}+'&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=near&amp;output=embed"></iframe>
-                <br/>
-                <small><a
-                        href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=seattle+downtown&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=A"
-                        style="color:#0000FF;text-align:left">View Larger Map</a></small>
-            </div>
-            <div class='separator cleaner_h20'></div>
+<body>
+<div class="container span18">
+    <div class="row">
+        <div class='span14'>
+            <h1>{{ title }}</h1>
             <div class='cleaner_h20'></div>
-
-            <!-- main description -->
-            <div class='row'>
-                <div class='span14'>
-                    <h4>Comments from <a href="#">Amy</a></h4>
-                    <p>
-                        The film stars James Stewart as former police detective John "Scottie" Ferguson. Scottie is
-                        forced into early retirement because an incident in the line of duty has caused him to develop
-                        acrophobia (an extreme fear of heights) and vertigo (a false sense of rotational movement).
-                        Scottie is hired by an acquaintance, Gavin Elster, as a private investigator to follow Gavin's
-                        wife Madeleine (Kim Novak), who is behaving strangely.
-                    </p>
-                    <div class='separator cleaner_h5'></div>
-                    <h4>Comments from <a href="#">Anna</a></h4>
-                    <p>
-                        Vertigo received mixed reviews upon initial release, but is now often cited as a classic
-                        Hitchcock film and one of the defining works of his career. Attracting significant scholarly
-                        criticism, it replaced Citizen Kane (1941) as the best film ever made in the 2012 British Film
-                        Institute's Sight & Sound critics' poll.[2] In 1996, the film underwent a major restoration to
-                        create a new 70mm print and DTS soundtrack. It has appeared repeatedly in polls of the best
-                        films by the American Film Institute,[3] including a 2007 ranking as the ninth-greatest American
-                        movie of all time.
-                    </p>
+            <div class='span14'>
+                <div class='row'>
+                    <div class='span6'>
+                        <div id='main-thumbnail'>
+                            <img src="{% static 'locationmovies/images/sample/sf.png' %}"/>
+                            <p>Expand</p>
+                        </div>
+                    </div>
+                    <div class='span8'>
+                        <div class='row'>
+                            <div class='span2'>
+                                Film Location:
+                            </div>
+                            <div class='span6'>
+                                {{ location }}
+                            </div>
+                        </div>
+                        <div class='cleaner_h10'></div>
+                        <div class='row'>
+                            <div class='span2'>
+                                Year:
+                            </div>
+                            <div class='span6'>
+                                <span class='time-left'>{{ release_year }}</span>
+                            </div>
+                        </div>
+                        <div class='cleaner_h10'></div>
+                        <div class='row'>
+                            <div class='span2'>
+                                Director:
+                            </div>
+                            <div class='span6'>
+                                {{ director }}
+                            </div>
+                        </div>
+                        <div class='cleaner_h10'></div>
+                        <div class='row'>
+                            <div class='span2'>
+                                Actor:
+                            </div>
+                            <div class='span6'>
+                                {{ actor }}
+                            </div>
+                        </div>
+                        <div class='cleaner_h10'></div>
+                        <div class='row'>
+                            <div class='span2'>
+                                Description:
+                            </div>
+                            <div class='span6'>
+                                {{ description }}
+                            </div>
+                        </div>
+                        <form action="/wishlist" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ id }}" name="addMe">
+                            <input type="submit" value="Add to Wishlist" class='btn small success'>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <!-- <div class='well span6'> -->
+        </div>
 
-            <div class='row'>
-                <form class='form-stacked'>
-                    <div class="clearfix">
-                        <label for="message">Add comments</label>
-                        <textarea class="xlarge" id="message" name="message" rows='1' style='resize:none;'></textarea>
-                        <input type='submit' value='submit&raquo;' id='submit' name='submit' class="btn primary"/>
-                    </div>
-                </form>
+        <div class='span4'>
+            <iframe width="220" height="280" frameborder="1" scrolling="yes" marginheight="0" marginwidth="0"
+                    src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q='+{{ location }}+'&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=near&amp;output=embed"></iframe>
+            <br/>
+            <small><a
+                    href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=seattle+downtown&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=56.06887,64.6875&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;t=m&amp;z=10&amp;iwloc=A"
+                    style="color:#0000FF;text-align:left">View Larger Map</a></small>
+        </div>
+        <div class='separator cleaner_h20'></div>
+        <div class='cleaner_h20'></div>
+
+        <!-- main description -->
+        <div class='row'>
+            <div class='span14'>
+                <h4>Comments from <a href="#">Amy</a></h4>
+                <p>
+                    The film stars James Stewart as former police detective John "Scottie" Ferguson. Scottie is
+                    forced into early retirement because an incident in the line of duty has caused him to develop
+                    acrophobia (an extreme fear of heights) and vertigo (a false sense of rotational movement).
+                    Scottie is hired by an acquaintance, Gavin Elster, as a private investigator to follow Gavin's
+                    wife Madeleine (Kim Novak), who is behaving strangely.
+                </p>
+                <div class='separator cleaner_h5'></div>
+                <h4>Comments from <a href="#">Anna</a></h4>
+                <p>
+                    Vertigo received mixed reviews upon initial release, but is now often cited as a classic
+                    Hitchcock film and one of the defining works of his career. Attracting significant scholarly
+                    criticism, it replaced Citizen Kane (1941) as the best film ever made in the 2012 British Film
+                    Institute's Sight & Sound critics' poll.[2] In 1996, the film underwent a major restoration to
+                    create a new 70mm print and DTS soundtrack. It has appeared repeatedly in polls of the best
+                    films by the American Film Institute,[3] including a 2007 ranking as the ninth-greatest American
+                    movie of all time.
+                </p>
             </div>
-            <!-- end of main description -->
-        </div> <!-- /container -->
-    </div>
+        </div>
+        <!-- <div class='well span6'> -->
+
+        <div class='row'>
+            <form class='form-stacked'>
+                <div class="clearfix">
+                    <label for="message">Add comments</label>
+                    <textarea class="xlarge" id="message" name="message" rows='1' style='resize:none;'></textarea>
+                    <input type='submit' value='submit&raquo;' id='submit' name='submit' class="btn primary"/>
+                </div>
+            </form>
+        </div>
+        <!-- end of main description -->
+    </div> <!-- /container -->
+</div>
 </body>
 </html>

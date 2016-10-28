@@ -1,3 +1,14 @@
+.well {
+ height:350px;
+ vertical-align: top;
+}
+
+.well img{
+ width: 195px;
+ height: 120px;
+}
+
+
 body {
  padding-top: 60px;
 }
