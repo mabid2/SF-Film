@@ -10,9 +10,9 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script src="static/locationmovies/scripts/jquery.min.js"></script>
-    <script src="static/locationmovies/scripts/bootstrap-dropdown.js"></script>
+    {% load staticfiles %}
+    <script src="{% static 'locationmovies/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'locationmovies/scripts/bootstrap-dropdown.js' %}"></script>
 
     <script type='text/javascript'>
     $(document).ready(function(){
@@ -21,7 +21,7 @@
     </script>
 
     <!-- Le styles -->
-    <link href="static/locationmovies/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'locationmovies/styles/bootstrap.min.css' %}" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -82,11 +82,13 @@
             <h4>Guest</h4>
             <div class='cleaner_h10'></div>
 
-            <div class='btn primary large'>See my wishlist</div>
+            <form method="get" action="/wishlist">
+                <input type="submit" value="See my wishlist" class='btn primary large'>
+            </form>
+
+
             <div class='cleaner_h20'></div>
 
-            <p><a href='templates/locationmovies/account1.html'>Movie</a></p>
-            <p><a href='#'>Place</a></p>
         </div><!-- end of sidebar -->
 
         <div class='span14'>
@@ -102,14 +104,18 @@
                   </tr>
               </thead>
               <tbody>
-                  {% for entry in movies %}
+                  {% for movie in favorites %}
                       <tr>
                           <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
-                          <td>{{ entry.title }}</td>
-                          <td>{{ entry.release_year }}</td>
-                          <td>{{ entry.location }}</td>
+                          <td>{{ movie.title }}</td>
+                          <td>{{ movie.release_year }}</td>
+                          <td>{{ movie.location }}</td>
                           <td>
-                            <div class='btn small success disabled'>Add to wishlist</div>
+                              <form action="/wishlist" method="post">
+                                  {% csrf_token %}
+                                  <input type="hidden" value="{{ movie.id }}" name="deleteMe">
+                                  <input type="submit" value="Delete from Wishlist" class='btn small success'>
+                              </form>
                           </td>
                       </tr>
                   {% endfor %}

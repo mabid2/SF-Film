@@ -209,46 +209,49 @@
             <div class="clearfix">
 
 
-              <label for="username_in">Username:
-                {% if messages %}
-                    {% for message in messages %}
-                      {% if message.extra_tags == 'username' %}
-                      {{ message }}
-                      {% endif %}
-                    {% endfor %}
-                {% endif %}
-              </label>
-              <div class="input">
-                <input id="username_in" name="username_in" size="30" type="text"/>
-                <!--
-                <span class="help-block">
-                  <span class='label important'>Warning</span> the username already exists
-                </span>
-                -->
-              </div>
-            </div>
-
-            <div class="clearfix">
+             <div class="clearfix">
 
 
-              <label for="pwd_in">Password:
-                {% if messages %}
-                    {% for message in messages %}
-                      {% if message.extra_tags == 'password' %}
-                      {{ message }}
-                      {% endif %}
-                    {% endfor %}
-                {% endif %}
-              </label>
-              <div class="input">
-                <input id="pwd_in" name="pwd_in" size="30" type="password"/>
-                <!--
-                <span class="help-block">
-                  <span class='label important'>Warning</span> too easy - even I can guess it
+             <label for="username_in">Username:
+               {% if messages %}
+                   {% for message in messages %}
+                     {% if message.extra_tags == 'username_in' %}
+                     {{ message }}
+                     {% endif %}
+                   {% endfor %}
+               {% endif %}
+             </label>
+             <div class="input">
+               <input id="username_in" name="username_in" size="30" type="text"/>
+               <!--
+               <span class="help-block">
+                 <span class='label important'>Warning</span> the username already exists
                </span>
-              -->
-              </div>
-            </div>
+               -->
+             </div>
+           </div>
+
+           <div class="clearfix">
+
+
+             <label for="pwd_in">Password:
+               {% if messages %}
+                   {% for message in messages %}
+                     {% if message.extra_tags == 'password_in' %}
+                     {{ message }}
+                     {% endif %}
+                   {% endfor %}
+               {% endif %}
+             </label>
+             <div class="input">
+               <input id="pwd_in" name="pwd_in" size="30" type="password"/>
+               <!--
+               <span class="help-block">
+                 <span class='label important'>Warning</span> too easy - even I can guess it
+              </span>
+             -->
+             </div>
+           </div>
 
             <ul class="inputs-list">
               <li>

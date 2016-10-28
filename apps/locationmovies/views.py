@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Users, Movies, Favorites
+from .models import Users, Movies
 from django.contrib import messages
 import csv
 
@@ -7,7 +7,7 @@ import csv
 def index(request):
 
     context = {
-        "movies": Movies.objects.all()
+        "movies": Movies.MoviesManager.all()
     }
 
     return render(request, 'locationmovies/index.html', context)
@@ -23,22 +23,32 @@ def registerUser(request):
     username = request.POST.get("username_up")
     email = request.POST.get("email_up")
     password = request.POST.get("pwd_up").encode()
+    confirmpassword = request.POST.get("passwordconf_up").encode()
     info = Users.UserManager.regUser(username, email, password)
     if info[0] is True:
         request.session['name'] = username
 
         return render(request, 'locationmovies/index.html')
     else:
-        messages.error(request, 'Email is not valid', extra_tags='email')
-        messages.error(request, 'Username is not long enough!!', extra_tags='username')
-        messages.error(request, 'Password must be at least 8 characters!!', extra_tags='password')
-        messages.error(request, 'Password Confirmation doesn\'t match!!', extra_tags='passwordconfirm')
+        if Users.UserManager.validuser(username):
+            messages.error(request, 'Username is not long enough!!', extra_tags='username')
+
+        if Users.UserManager.validemail(email):
+            messages.error(request, 'Email is not valid', extra_tags='email')
+
+        if Users.UserManager.validemail(password):
+            messages.error(request, 'Password must be at least 8 characters!!', extra_tags='password')
+
+        if Users.UserManager.matchpasswords(password, confirmpassword):
+            messages.error(request, 'Password Confirmation doesn\'t match!!', extra_tags='passwordconfirm')
         return redirect('/login')
+
 
 def loginUser(request):
     username = request.POST.get("username_in")
     password = request.POST.get('pwd_in').encode()
     Users.UserManager.logUser(username, password)
+
     if Users.UserManager.logUser(username, password):
         request.session['name']= request.POST['username_in']
 
@@ -50,22 +60,23 @@ def loginUser(request):
         }
         return redirect('/', context)
     else:
-        print 'Failed Login'
-        context = {
-            "invalid_reg": "Your credentials doesn't work!"
-        }
-        return render(request, 'locationmovies/login.html', context)
+        if Users.UserManager.validuser(username):
+            messages.error(request, 'Username is not long enough!!', extra_tags='username_in')
+        if Users.UserManager.validemail(password):
+            messages.error(request, 'Password must be at least 8 characters!!', extra_tags='password_in')
+
+        return redirect('/login')
 
 
 def logout(request):
-   request.session.clear()
-   return redirect('/')
+    request.session.clear()
+    return redirect('/')
 
 
 def display(request, id):
     print "IN the display function"
     request.session['current_row'] = id
-    row = Movies.objects.filter(id=id)[0]
+    row = Movies.MoviesManager.filter(id=id)[0]
     context = {
         'title': row.title,
         'release_year': row.release_year,
@@ -75,18 +86,13 @@ def display(request, id):
 
     }
 
-    # x = row.location.split(' ')
-    # print ('+'.join(x), "***************************")
-    # context = {
-    #     'movies': Movies.objects.all()
-    # }
     return render(request, 'locationmovies/content.html', context)
 
 
 def displayAll(request):
     context = {
         # 'movies': Movies.objects.raw('SELECT * from Movies')
-        'movies': Movies.objects.all()
+        'movies': Movies.MoviesManager.all()
     }
     return render(request, 'locationmovies/list.html', context)
 
@@ -94,7 +100,7 @@ def displayAll(request):
 def search(request):
     if request.method == 'POST':
         queryr = request.POST.get('search')
-        result = Movies.objects.filter(title__contains=queryr).first()
+        result = Movies.MoviesManager.filter(title__contains=queryr).first()
         print result
 
     context = {
@@ -107,11 +113,50 @@ def contact(request):
     return render(request, 'locationmovies/contact_us.html')
 
 
-def addWishlist(request, idObject):
-    newEntry = Favorites()
-    newEntry.save()
-    newEntry.objects.create(movie_id=idObject)
-    newEntry.save()
-    print newEntry
-    return redirect('/')
 
+def deleteWishlist(request):
+    if request.session["name"]:
+        # print("VAGINA: {}".format(request.session['name']))
+        userGuy = Users.UserManager.get(username=request.session["name"])
+        delete = request.POST.get("deleteMe")
+        print delete
+        # newFav = Movies.MoviesManager.get(id=delete)
+        #
+        # newFav.favorited_by.remove()
+        context = {"favorites": userGuy.movies_set.all()}
+
+        return render(request, 'locationmovies/wishlist.html', context)
+    else:
+        return redirect('/displayAll')
+
+def displayapes(request):
+   return render(request, 'locationmovies/displayapes.html')
+
+
+def displaysan(request):
+   return render(request, 'locationmovies/displaysan.html')
+
+def displayharry(request):
+   return render(request, 'locationmovies/displayharry.html')
+
+def displayvertigo(request):
+   return render(request, 'locationmovies/displayvertigo.html')
+
+
+def wishlist(request):
+    if request.session["name"]:
+        userGuy = Users.UserManager.get(username=request.session["name"])
+
+        if request.POST and request.POST.get("addMe"):
+            movieId = request.POST.get("addMe")
+            newFav = Movies.MoviesManager.get(id=movieId)
+            newFav.favorited_by.add(userGuy)
+        elif request.POST and request.POST.get("deleteMe"):
+            movieId = request.POST.get("deleteMe")
+            newFav = Movies.MoviesManager.get(id=movieId)
+            newFav.favorited_by.remove(userGuy)
+
+
+        context = {"favorites": userGuy.movies_set.all()}
+
+        return render(request, 'locationmovies/wishlist.html', context)

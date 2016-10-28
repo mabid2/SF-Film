@@ -42,12 +42,10 @@
         <div class="well span4 sidebar">
             <h4>Guest</h4>
             <div class='cleaner_h10'></div>
-
-            <div class='btn primary large'>See my wishlist</div>
+            <form method="get" action="/wishlist">
+                <input type="submit" value="See my wishlist" class='btn primary large'>
+            </form>
             <div class='cleaner_h20'></div>
-
-            <p><a href='templates/locationmovies/account1.html'>Movie</a></p>
-            <p><a href='#'>Place</a></p>
         </div><!-- end of sidebar -->
 
         <div class='span14'>
@@ -63,18 +61,20 @@
                   </tr>
               </thead>
               <tbody>
-                    {% for entry in movies %}
+                    {% for single_movie_info in movies %}
                       <tr>
                           <td class='mini-thumbnail'><img src='static/locationmovies/images/sample/milk copy.png'/></td>
-                          <td>{{ entry.title }}</td>
-                          <td>{{ entry.release_year }}</td>
-                          <td>{{ entry.location }}</td>
+                          <td>{{ single_movie_info.title }}</td>
+                          <td>{{ single_movie_info.release_year }}</td>
+                          <td>{{ single_movie_info.location }}</td>
                           <td>
-                              <form action="/addFav/{{ entry.id }}" method="post">
+                              <form action="/wishlist" method="post">
+
                                   {% csrf_token %}
-                                  <input type="submit" value="AddWishlist" class='btn small success'>
+                                  <input type="hidden" value="{{ single_movie_info.id }}" name="addMe">
+                                  <input type="submit" value="Add to Wishlist" class='btn small success'>
                               </form>
-                              <form action="/display/{{ entry.id }}" method="post">
+                              <form action="/display/{{ single_movie_info.id }}" method="post">
                                   {% csrf_token %}
                                   <input type="submit" value="Details" class='btn small success'>
                               </form>

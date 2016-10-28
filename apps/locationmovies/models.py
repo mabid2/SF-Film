@@ -3,6 +3,7 @@ from django.db import models
 import bcrypt
 import re
 import datetime
+
 now = datetime.datetime.now()
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
@@ -20,6 +21,10 @@ class UserManager(models.Manager):
         if error is True:
             return False
         else:
+            print "9" * 100,
+            AllUsers = Users.UserManager.all()
+            for users in AllUsers:
+                print users.username
             passwordHash = Users.UserManager.get(username=username_in).password.encode()
             print passwordHash
             if bcrypt.hashpw(pwd_in, passwordHash) == passwordHash:
@@ -50,6 +55,53 @@ class UserManager(models.Manager):
             # print newuser.username, "*" * 100
             return [True]
 
+    def validuser(self, username_valid):
+        if len(username_valid) < 3:
+            return True
+        else:
+            return False
+
+    def validemail(self, email_valid):
+        if not EMAIL_REGEX.match(email_valid):
+            return True
+        else:
+            return False
+
+    def validpassword(self, pass_valid):
+        if len(pass_valid) < 9:
+            return True
+        else:
+            return False
+
+    def matchpasswords(self, password, confirmpass):
+        if password != confirmpass:
+            return True
+        else:
+            return False
+
+class MoviesManager(models.Manager):
+    def addMovie(self, id):
+        return True
+
+
+
+#
+# class Favorites(models.Model):
+#     # list = models.CharField(max_length=500)
+#     movie_id = models.ManyToManyField(Movies, null=True)
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+
+
+class Users(models.Model):
+    username = models.CharField(max_length=60)
+    email = models.CharField(max_length=45)
+    password = models.CharField(max_length=45)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # favorite_movies = models.ManyToManyField(Movies)
+    UserManager = UserManager()
+
 
 class Movies(models.Model):
     title = models.CharField(max_length=60, null=True)
@@ -61,27 +113,13 @@ class Movies(models.Model):
     actors = models.CharField(max_length=60, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    # favorited_by = models.ForeignKey('Favorites', on_delete=models.CASCADE)
+    favorited_by = models.ManyToManyField(Users)
+    MoviesManager = MoviesManager()
 
     def __unicode__(self):
-        return "%s, %s, %s, %s, %s, %s, %s" % (self.title, self.release_year, self.location, self.production_company, self.director, self.writer, self.actors)
+        return "%s, %s, %s, %s, %s, %s, %s" % (
+        self.title, self.release_year, self.location, self.production_company, self.director, self.writer, self.actors)
 
     class Meta:
         ordering = ['title']
-
-
-class Favorites(models.Model):
-    movie_id = models.ManyToManyField(Movies, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
-class Users(models.Model):
-    username = models.CharField(max_length=60)
-    email = models.CharField(max_length=45)
-    password = models.CharField(max_length=45)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    favorites_id = models.OneToOneField(Favorites, null=True)
-    UserManager = UserManager()
-
-

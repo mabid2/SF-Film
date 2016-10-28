@@ -40,16 +40,6 @@
             <div class='cleaner_h20'></div>
             <p>You may live in SF for more than 30 years but you can never imagine there are so many famous films shot around your most familiar place!</p>
             <div class='cleaner_h20'></div>
-            <!-- <label class="custom-control custom-radio">
-            <input id="radio1" name="radio" type="radio" class="custom-control-input">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Movie</span>
-            </label>
-            <label class="custom-control custom-radio">
-            <input id="radio2" name="radio" type="radio" class="custom-control-input">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Place</span>
-            </label> -->
             <input type="text" name="search" id="id_search" value="{{ query }}" placeholder="Search by Movie Title">
             <div class='cleaner_h20'></div>
             <input type='submit' value='Find It &raquo;' id='signup' name='signup' class="btn primary"/>
@@ -59,65 +49,75 @@
 
       <div class='cleaner'></div>
 
-      <div class='span16'>
-        <div class='content-row'>
 
-          <div class='well'>
-            <img src='static/locationmovies/images/sample/milk.png' class='content-thumbnail'/>
-            <div class='cleaner'></div>
-            <div class='title'>Milk</div>
-            <div class='cleaner'></div>
-            <div class='current-price'>2013</div>
-            <div class='cleaner'></div>
-            <h5 id="time-left2">Castro Street</h5>
-            <div class='cleaner'></div>
-            <form action="/display" method="post">
-              {% csrf_token %}
-              <input type='submit' class='btn primary large' value='Have a look'/>
-            </form>
-          </div>
-          <div class='well'>
-            <img src='static/locationmovies/images/sample/dirty_harry.png' class='content-thumbnail'/>
-            <div class='cleaner'></div>
-            <div class='title'>Dirty Harry</div>
-            <div class='cleaner'></div>
-            <div class='current-price'>1971</div>
-            <div class='cleaner'></div>
-            <h5 id="time-left2">Portsmouth Square</h5>
-            <div class='cleaner'></div>
-            <input type='button' class='btn primary large' value='Have a look'/>
-          </div>
-          <div class='well'>
-            <img src='static/locationmovies/images/sample/48hours.png' class='content-thumbnail'/>
-            <div class='cleaner'></div>
-            <div class='title'>48 Hours</div>
-            <div class='cleaner'></div>
-            <div class='current-price'>1982</div>
-            <div class='cleaner'></div>
-            <h5 id="time-left2">MUNI Church Street Station</h5>
-            <div class='cleaner'></div>
-            <input type='button' class='btn primary large' value='Have a look'/>
-          </div>
-          <div class='well'>
-            <img src='static/locationmovies/images/sample/vertigo.png' class='content-thumbnail'/>
-            <div class='cleaner'></div>
-            <div class='title'>Vertigo</div>
-            <div class='cleaner'></div>
-            <div class='current-price'>1958</div>
-            <div class='cleaner'></div>
-            <h5 id="time-left2">Golden Gate Bridge</h5>
-            <div class='cleaner'></div>
-            <input type='button' class='btn primary large' value='Have a look'/>
-          </div>
+<div class='span16'>
+       <div class='content-row'>
 
-        </div>
-      </div>
+         <div class='well'>
+           <img src='static/locationmovies/images/sample/apes.jpg' class='content-thumbnail'/>
+           <div class='cleaner'></div>
+           <div class='title'>Dawn of the Planet of the Apes</div>
+           <div class='cleaner'></div>
+           <div class='current-price'>2014</div>
+           <div class='cleaner'></div>
+           <h5 id="time-left2">SF City Hall</h5>
+           <div class='cleaner'></div>
+           <form action="/displayapes" method="post">
+             {% csrf_token %}
+             <input type='submit' class='btn primary large' value='Have a look'/>
+           </form>
+         </div>
+         <div class='well'>
+           <img src='static/locationmovies/images/sample/dirty_harry.png' class='content-thumbnail'/>
+           <div class='cleaner'></div>
+           <div class='title'>Dirty Harry</div>
+           <div class='cleaner'></div>
+           <div class='current-price'>1971</div>
+           <div class='cleaner'></div>
+           <h5 id="time-left2">Portsmouth Square</h5>
+           <div class='cleaner'></div>
+           <form action="/displayharry" method="post">
+             {% csrf_token %}
+             <input type='submit' class='btn primary large' value='Have a look'/>
+           </form>
+         </div>
+         <div class='well'>
+           <img src='static/locationmovies/images/sample/sanandreas.jpg' class='content-thumbnail'/>
+           <div class='cleaner'></div>
+           <div class='title'>San Andreas</div>
+           <div class='cleaner'></div>
+           <div class='current-price'>2015</div>
+           <div class='cleaner'></div>
+           <h5 id="time-left2">Coit Tower</h5>
+           <div class='cleaner'></div>
+           <form action="/displaysan" method="post">
+             {% csrf_token %}
+             <input type='submit' class='btn primary large' value='Have a look'/>
+           </form>
+         </div>
+         <div class='well'>
+           <img src='static/locationmovies/images/sample/vertigo.png' class='content-thumbnail'/>
+           <div class='cleaner'></div>
+           <div class='title'>Vertigo</div>
+           <div class='cleaner'></div>
+           <div class='current-price'>1958</div>
+           <div class='cleaner'></div>
+           <h5 id="time-left2">Golden Gate Bridge</h5>
+           <div class='cleaner'></div>
+           <form action="/displayvertigo" method="post">
+             {% csrf_token %}
+             <input type='submit' class='btn primary large' value='Have a look'/>
+           </form>
+         </div>
 
-      <footer>
-        <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
-      </footer>
+       </div>
+     </div>
 
-    </div> <!-- /container -->
+     <footer>
+       <p>&copy; Coding Dojo by <a href='http://www.codingdojo.com' target='_blank' title='Professional Web Developer'>Group_1</a></p>
+     </footer>
 
-  </body>
+   </div> <!-- /container -->
+
+ </body>
 </html>
