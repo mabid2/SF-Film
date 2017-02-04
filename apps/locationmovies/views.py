@@ -66,7 +66,6 @@ def logout(request):
 
 
 def display(request, id):
-
     request.session['current_row'] = id
     row = Movies.MoviesManager.filter(id=id)[0]
     context = {
